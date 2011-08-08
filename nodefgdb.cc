@@ -1,6 +1,6 @@
 #include <v8.h>
 #include <node.h>
-#include "include/FileGDBAPI.h"
+#include <FileGDBAPI.h>
 
 #include <string>
 #include <iostream>
