@@ -1,0 +1,5 @@
+/build/*
+/include/*
+/lin/*
+
+.lock-wscript

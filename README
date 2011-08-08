@@ -1,0 +1,2 @@
+This is currently an experimental Node.js extension.
+As of right now it does not work. There are some issues with the compiled version that I think may have to do with the linker options I am using for my waf build wscript.
