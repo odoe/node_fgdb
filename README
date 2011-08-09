@@ -1,11 +1,31 @@
-This is currently an experimental Node.js extension.
-As of right now it does not work. There are some issues with the compiled version that I think may have to do with the linker options I am using for my waf build wscript.
+h3. This is currently an experimental Node.js extension.
 
-I am able to get the extension to compile, however I get an undefined symbol error when trying to use it.
+The ESRI C++ File Geodatabase API is available from the following link.
+http://resources.arcgis.com/content/geodatabases/10.0/file-gdb-api
 
+You will need the Linux 32-bit version. This is a Linux ONLY extension.
+
+To currently run this script you will need to add the samples/data folder to the root of the nodefgdb extension.
+You should have a folder structure as follows
+node_fgdb
+- data
+- nodefgdb.cc
+- wscript
+
+Edit the wscript file so that it points your directory.
+
+Run the node-waf build script
+node-waf configure && node-waf build
+
+You should get some ignore #pragma warning messages followed by a 'build' finished successfully message.
+
+Start node from the extensions root directory
+
+odoe@linuxbox:~/dev/node_fgdb$ node
 > var test = require("./build/default/nodefgdb");
-> var gdb = new test.NodeFGDB();
-> gdb.query();
-node: symbol lookup error: /home/odoe/dev/node_fgdb/build/default/nodefgdb.node: undefined symbol: _ZN10FileGDBAPI11GeodatabaseC1Ev
+> var fgdb = new test.NodeFGDB();
+> fgdb.query();
+'Port Angeles'
 
-I'm making small strides, but any input would be appreciated.
+This is so far a proof of concept just to show that the ESRI File Geodatabase API could be used as a node.js extension.
+Now that I have gotten this much working, I will be working on adding basic CRUD functionality and hope to implement GeoJSON/ESRIJson.

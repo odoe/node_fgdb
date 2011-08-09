@@ -4,18 +4,17 @@ def set_options(opt):
 def configure(conf):
   conf.check_tool("compiler_cxx")
   conf.check_tool("node_addon")
-  #conf.env.append_value("LD_LIBRARY_PATH", "/home/odoe/dev/FileGDB_API/lib")
-  conf.env.LD_LIBRARY_PATH_TEST = ["/home/odoe/dev/FileGDB_API/lib"]
+  conf.env.RPATH_TEST = ["/home/odoe/dev/FileGDB_API/lib"]
+  conf.env.INCLUDES_TEST = ["/home/odoe/dev/FileGDB_API/include"]
+  conf.env.LIBPATH_TEST   = ["/home/odoe/dev/FileGDB_API/lib"]
 
-#-W -fexceptions -fno-inline  -D_CONSOLE $(CXDEF) -I../../include $(CXOTHER)
 def build(bld):
   obj = bld.new_task_gen("cxx", "shlib", "node_addon")
-  obj.cxxflags = ["-g", "-D_FILE_OFFSET_BITS=64", "-D_LARGEFILE_SOURCE", "-W", "-Wunknown-pragmas", "-I/home/odoe/dev/FileGDB_API/include", "-fexceptions", "-fno-inline", "-Wall"]
-  obj.ldflags = ["-L/home/odoe/dev/FileGDB_API/lib"]
+  obj.cxxflags = ["-g", "-D_FILE_OFFSET_BITS=64", "-D_LARGEFILE_SOURCE", "-W", "-Wunknown-pragmas", "-fexceptions", "-fno-inline", "-Wall"]
   obj.includes = "/home/odoe/dev/FileGDB_API/include"
+  obj.defines = ["TEST"]
+  obj.libpath = "/home/odoe/dev/FileGDB_API/lib"
   obj.target = "nodefgdb"
   obj.source = "nodefgdb.cc"
   obj.uselib = "TEST"
-  #obj.uselib = "lFileGDBAPI"
-  #obj.uselib = "libfgdblinuxrtl.so"
-  #obj.uselib = "libFileGDBAPI.so"
+  obj.libs = "FileGDBAPI"
