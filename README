@@ -1,17 +1,11 @@
 This is currently an experimental Node.js extension.
 As of right now it does not work. There are some issues with the compiled version that I think may have to do with the linker options I am using for my waf build wscript.
 
-The following is the error I get when using require in node.
->var g = require("./build/default/nodefgdb.node")
-Error: /home/odoe/dev/node_fgdb/build/default/nodefgdb.node: undefined symbol: _ZTIN10FileGDBAPI11ShapeBufferE
-    at Object..node (module.js:414:11)
-    at Module.load (module.js:334:31)
-    at Function._load (module.js:293:12)
-    at require (module.js:346:19)
-    at [object Context]:1:1
-    at Interface.<anonymous> (repl.js:171:22)
-    at Interface.emit (events.js:64:17)
-    at Interface._onLine (readline.js:153:10)
-    at Interface._line (readline.js:408:8)
-    at Interface._ttyWrite (readline.js:585:14)
+I am able to get the extension to compile, however I get an undefined symbol error when trying to use it.
 
+> var test = require("./build/default/nodefgdb");
+> var gdb = new test.NodeFGDB();
+> gdb.query();
+node: symbol lookup error: /home/odoe/dev/node_fgdb/build/default/nodefgdb.node: undefined symbol: _ZN10FileGDBAPI11GeodatabaseC1Ev
+
+I'm making small strides, but any input would be appreciated.
