@@ -65,7 +65,7 @@ public:
 	Geodatabase geodatabase;
 	Local<String> result;
 	// Open the geodatabase.
-	if ((hr = OpenGeodatabase(L"../data/Querying.gdb", geodatabase)) != S_OK)
+	if ((hr = OpenGeodatabase(L"data/Querying.gdb", geodatabase)) != S_OK)
 	{
 		ErrorInfo::GetErrorDescription(hr, errorText);
 		string str(errorText.length(),' ');
@@ -101,13 +101,13 @@ public:
 	Row attrQueryRow;
 	wstring cityName;
 	//int32 cityPop;
-	PointShapeBuffer geometry;
-	Point* point;
+	//PointShapeBuffer geometry;
+	//Point* point;
 	while (attrQueryRows.Next(attrQueryRow) == S_OK)
 	{
 		attrQueryRow.GetString(L"CITY_NAME", cityName);
 		//attrQueryRow.GetGeometry(geometry);
-		geometry.GetPoint(point);
+		//geometry.GetPoint(point);
 	}
 	attrQueryRows.Close();
 	string str(cityName.length(),' ');

@@ -1,5 +1,6 @@
 /build/*
 /include/*
 /lib/*
+/data/*
 
 .lock-wscript

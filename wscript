@@ -11,7 +11,7 @@ def configure(conf):
 def build(bld):
   obj = bld.new_task_gen("cxx", "shlib", "node_addon")
   obj.cxxflags = ["-g", "-D_FILE_OFFSET_BITS=64", "-D_LARGEFILE_SOURCE", "-W", "-Wunknown-pragmas", "-I/home/odoe/dev/FileGDB_API/include", "-fexceptions", "-fno-inline", "-Wall"]
-  obj.ldflags = ["-Llib"]
+  obj.ldflags = ["-L/home/odoe/dev/FileGDB_API/lib"]
   obj.includes = "/home/odoe/dev/FileGDB_API/include"
   obj.target = "nodefgdb"
   obj.source = "nodefgdb.cc"
