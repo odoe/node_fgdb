@@ -30,7 +30,7 @@ You can find the field names by using the fields() method.
 > fgdb.fields();
 'OBJECTID, Shape, CITY_FIPS, CITY_NAME, STATE_FIPS, STATE_NAME, STATE_CITY, TYPE, CAPITAL, ELEVATION, POP1990, POPCAT'
 
-You can now that you know the field names, you can write your own valid query.
+Now that you know the field names, you can write your own valid query.
 > var query = "CITY_NAME LIKE 'Port%'";
 > fgdb.query(query);
 'Port Angeles, Portland, Portland, Portsmouth, Port Huron, Portage, Port Chester, Portage Lakes, Portage, Port Washington, Portsmouth, Portsmouth, Porterville, Portales, Port Hueneme, Port Neches, Port Arthur, Port Orange, Port Lavaca, Portland, Port St. Lucie, Port Charlotte'
