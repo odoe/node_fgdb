@@ -1,4 +1,4 @@
-h3. This is currently an experimental Node.js extension.
+This is currently an experimental Node.js extension.
 
 The ESRI C++ File Geodatabase API is available from the following link.
 http://resources.arcgis.com/content/geodatabases/10.0/file-gdb-api
@@ -24,8 +24,16 @@ Start node from the extensions root directory
 odoe@linuxbox:~/dev/node_fgdb$ node
 > var test = require("./build/default/nodefgdb");
 > var fgdb = new test.NodeFGDB();
-> fgdb.query();
-'Port Angeles'
+
+As of right now, it only pulls data from a single Table, the Cities Table. This will be configurable in future releases.
+You can find the field names by using the fields() method.
+> fgdb.fields();
+'OBJECTID, Shape, CITY_FIPS, CITY_NAME, STATE_FIPS, STATE_NAME, STATE_CITY, TYPE, CAPITAL, ELEVATION, POP1990, POPCAT'
+
+You can now that you know the field names, you can write your own valid query.
+> var query = "CITY_NAME LIKE 'Port%'";
+> fgdb.query(query);
+'Port Angeles, Portland, Portland, Portsmouth, Port Huron, Portage, Port Chester, Portage Lakes, Portage, Port Washington, Portsmouth, Portsmouth, Porterville, Portales, Port Hueneme, Port Neches, Port Arthur, Port Orange, Port Lavaca, Portland, Port St. Lucie, Port Charlotte'
 
 This is so far a proof of concept just to show that the ESRI File Geodatabase API could be used as a node.js extension.
-Now that I have gotten this much working, I will be working on adding basic CRUD functionality and hope to implement GeoJSON/ESRIJson.
+Now that I have gotten this much working, I will be working on adding basic query functionality and hope to implement GeoJSON/ESRIJson.
