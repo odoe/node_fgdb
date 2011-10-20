@@ -7,3 +7,4 @@
 .lock-wscript
 .project
 .cproject
+nodefgdb.cc

@@ -14,7 +14,7 @@ def build(bld):
   obj.includes = "/home/odoe/dev/FileGDB_API/include"
   obj.defines = ["TEST"]
   obj.libpath = "/home/odoe/dev/FileGDB_API/lib"
-  obj.target = "nodefgdb"
-  obj.source = "nodefgdb.cc"
+  obj.target = "fgdb"
+  obj.source = "fgdb.cc"
   obj.uselib = "TEST"
   obj.libs = "FileGDBAPI"
